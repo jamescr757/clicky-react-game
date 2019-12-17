@@ -8,7 +8,12 @@ class CardContainer extends React.Component {
 
     render() {
 
-        const shuffledCharacters = shuffle(characters);
+        let shuffledCharacters;
+        if (this.props.shuffleCards) {
+            shuffledCharacters = shuffle(characters);
+        } else {
+            shuffledCharacters = characters;
+        }
 
         return (
             <div className="card-container">

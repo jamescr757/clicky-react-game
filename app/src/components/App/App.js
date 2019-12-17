@@ -4,7 +4,9 @@ import Navbar from "../Navbar";
 import Jumbotron from "../Jumbotron";
 import CardContainer from "../CardContainer";
 import Score from "../Score";
+import Message from "../Message";
 import Footer from "../Footer";
+import Modal from "../Modal";
 
 class App extends React.Component {
 
@@ -12,7 +14,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       highScore: 0,
-      clickedArr: []
+      clickedArr: [],
+      message: "Click an image to begin!",
+      showModal: false,
+      modalMessage: "",
+      shuffleCards: true
     }
   }
 
@@ -24,42 +30,81 @@ class App extends React.Component {
       const newClickedArr = this.state.clickedArr;
 
       this.setState({
-        clickedArr: newClickedArr
+        clickedArr: newClickedArr,
+        message: "Guessed correctly!"
       })
 
     } else {
-      alert(`game over... your score was ${this.state.clickedArr.length}`);
+
+      this.setState({
+        modalMessage: `Game Over! Score: ${this.state.clickedArr.length}`,
+        showModal: true,
+        shuffleCards: false
+      })
       
       if (this.state.clickedArr.length > this.state.highScore) {
+        // TODO: refactor next 4 lines into a function
         this.setState({
           highScore: this.state.clickedArr.length,
-          clickedArr: []
+          clickedArr: [],
+          message: "Click an image to begin!",
+          shuffleCards: false
         })
       } else {
         this.setState({
-          clickedArr: []
+          clickedArr: [],
+          message: "Click an image to begin!",
+          shuffleCards: false
         })
       }
     }
 
     if (this.state.clickedArr.length === 12) {
-      alert("highest score possible!")
       this.setState({
-        highScore: 12, 
-        clickedArr: []
+        highScore: 12,
+        modalMessage: "Max Score! Score: 12",
+        showModal: true,
+        shuffleCards: false
       })
+    }
+  }
+
+  clickOutOfModal = () => {
+    if (this.state.showModal) {
+      this.setState({
+        clickedArr: [],
+        message: "Click an image to begin!",
+        showModal: false,
+        shuffleCards: true
+      })
+    }
+  }
+
+  renderModal = () => {
+
+    if (this.state.showModal) { 
+      return (
+          <Modal 
+            body={this.state.modalMessage} 
+          />
+      );
     }
   }
 
   render() {
     return (
-      <React.Fragment>
+      <div onClick={this.clickOutOfModal}>
         <Navbar score={this.state.highScore}/>
         <Jumbotron />
+        <Message message={this.state.message}/>
         <Score score={this.state.clickedArr.length}>Current Score:</Score>
-        <CardContainer handleCardClick={this.handleCardClick}/>
+        {this.renderModal()}
+        <CardContainer 
+          handleCardClick={this.handleCardClick}
+          shuffleCards={this.state.shuffleCards}
+          />
         <Footer />
-      </React.Fragment>
+      </div>
     );
   }
 }

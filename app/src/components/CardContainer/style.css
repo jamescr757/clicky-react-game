@@ -4,5 +4,7 @@
     align-content: center;
     flex-wrap: wrap;
     width: 60vw;
-    margin: 2rem auto;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    min-height: 600px;
 }

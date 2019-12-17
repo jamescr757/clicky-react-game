@@ -5,7 +5,7 @@ function Footer() {
     
     return (
         <div className="footer-div">
-            <p className="p-footer text-center mb-0">This is the temporary footer</p>
+            <p className="p-footer text-center mb-0">Clicky Game Built with React</p>
         </div>
     );
 }

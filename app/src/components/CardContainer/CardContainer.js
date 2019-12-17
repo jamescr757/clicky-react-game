@@ -2,17 +2,22 @@ import React from "react";
 import "./style.css"
 import Card from "../Card";
 import characters from "./characters.json";
+import { shuffle } from "../../utils/shuffle";
 
 class CardContainer extends React.Component {
 
     render() {
+
+        const shuffledCharacters = shuffle(characters);
+
         return (
             <div className="card-container">
-                {characters.map((character, index) => (
+                {shuffledCharacters.map((character, index) => (
                     <Card 
                         key={index}
                         image={`./images/${character.name}.jpeg`}
-                        onClick={this.props.increaseScore}
+                        id={character.id}
+                        handleCardClick={this.props.handleCardClick}
                     />
                 ))}
             </div>

@@ -1,38 +1,50 @@
 [
     {
-        "name": "mario"
+        "name": "mario",
+        "id": 1
     },
     {
-        "name": "luigi"
+        "name": "luigi",
+        "id": 2
     },
     {
-        "name": "toad"
+        "name": "toad",
+        "id": 3
     },
     {
-        "name": "captainFalcon"
+        "name": "captainFalcon",
+        "id": 4
     },
     {
-        "name": "peach"
+        "name": "peach",
+        "id": 5
     },
     {
-        "name": "donkeyKong"
+        "name": "donkeyKong",
+        "id": 6
     },
     {
-        "name": "diddyKong"
+        "name": "diddyKong",
+        "id": 7
     },
     {
-        "name": "toadsworth"
+        "name": "toadsworth",
+        "id": 8
     },
     {
-        "name": "wario"
+        "name": "wario",
+        "id": 9
     },
     {
-        "name": "yoshi"
+        "name": "yoshi",
+        "id": 10
     },
     {
-        "name": "bowser"
+        "name": "bowser",
+        "id": 11
     },
     {
-        "name": "waluigi"
+        "name": "waluigi",
+        "id": 12
     }
 ]

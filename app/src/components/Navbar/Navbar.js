@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.css";
-import HighScore from "../HighScore"
+import Score from "../Score"
 
-function Navbar() {
+function Navbar(props) {
     
     return (
         <nav className="navbar fixed-top navbar-expand-lg">
@@ -13,9 +13,9 @@ function Navbar() {
                 </li>
                 </ul>
                 <span className="navbar-text">
-                    <HighScore 
-                        highScore={12}
-                    />
+                    <Score score={props.score}>
+                        High Score:
+                    </Score>
                 </span>
             </div>
         </nav>

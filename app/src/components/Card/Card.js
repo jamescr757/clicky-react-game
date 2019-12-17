@@ -21,7 +21,7 @@ class Card extends React.Component {
             <div className="click-card-frame">
                 <div className="click-card" 
                     style={{backgroundImage: `url(${this.props.image})`}}
-                    onClick={this.props.onClick}
+                    onClick={()=>this.props.handleCardClick(this.props.id)}
                 >
                 </div>
             </div>

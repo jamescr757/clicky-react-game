@@ -3,6 +3,7 @@
     width: 140px;
     background-position: center;
     background-size: cover;
+    cursor: pointer;
 }
 
 .click-card-frame {
@@ -10,9 +11,8 @@
     margin: 0.75rem;
     box-shadow: 5px 5px 5px rgb(179, 175, 175);
     background-color: black;
-    cursor: pointer;
 }
 
-.click-card-frame:hover {
+.click-card:hover {
     transform: scale(1.05);
 }

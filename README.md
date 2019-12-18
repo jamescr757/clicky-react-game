@@ -1,4 +1,4 @@
-# clicky-react-game
+# Clicky Game - A React Application
 
 Basic react application that uses one stateful component to control all of its child components. 
 

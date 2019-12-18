@@ -36,39 +36,45 @@ class App extends React.Component {
 
     } else {
 
-      this.setState({
-        modalMessage: `Game Over! Score: ${this.state.clickedArr.length}`,
-        showModal: true,
-        shuffleCards: false
-      })
+      this.setStateAndShowModal(false, `Game Over! Score: ${this.state.clickedArr.length}`);
       
+      // if user score higher than current high score
       if (this.state.clickedArr.length > this.state.highScore) {
-        // TODO: refactor next 4 lines into a function
-        this.setState({
-          highScore: this.state.clickedArr.length,
-          clickedArr: [],
-          message: "Guessed incorrectly!",
-          shuffleCards: false
-        })
-      } else {
-        this.setState({
-          clickedArr: [],
-          message: "Guessed incorrectly!",
-          shuffleCards: false
-        })
-      }
+
+        // set new high score
+        this.setStateAtGameEnd(this.state.clickedArr.length);
+        
+      } else this.setStateAtGameEnd(false);
     }
 
     if (this.state.clickedArr.length === 12) {
-      this.setState({
-        highScore: 12,
-        modalMessage: "Max Score! Score: 12",
-        showModal: true,
-        shuffleCards: false
-      })
+      this.setStateAndShowModal(12, "Max Score! Score: 12");
     }
   }
 
+  setStateAndShowModal = (highScore, modalMessage) => {
+
+    if (highScore) this.setState({ highScore })
+
+    this.setState({
+      modalMessage,
+      showModal: true,
+      shuffleCards: false
+    })
+  }
+
+  setStateAtGameEnd = (highScore) => {
+
+    if (highScore) this.setState({ highScore })
+
+    this.setState({
+      clickedArr: [],
+      message: "Guessed incorrectly!",
+      shuffleCards: false
+    })
+  }
+
+  // reset the game by resetting the state
   clickOutOfModal = () => {
     if (this.state.showModal) {
       this.setState({
@@ -81,7 +87,6 @@ class App extends React.Component {
   }
 
   renderModal = () => {
-
     if (this.state.showModal) { 
       return (
           <Modal 

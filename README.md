@@ -2,7 +2,6 @@
 
 Basic react application that uses one stateful component to control all of its child components. 
 
--------
 
 ## How to Play the Game 
 
@@ -11,7 +10,6 @@ Basic react application that uses one stateful component to control all of its c
 * The maximum score is 12 
 
 
-------
 
 ## Context if Fork this Repo
 * Currently, the App component controls every other component (its children)

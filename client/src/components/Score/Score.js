@@ -11,5 +11,3 @@ class Score extends React.Component {
 }
 
 export default Score;
-
-// TODO: style current score 

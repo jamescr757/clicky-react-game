@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css"
+import "./CardContainer.css"
 import Card from "../Card";
 import characters from "./characters.json";
 import { shuffle } from "../../utils/shuffle";

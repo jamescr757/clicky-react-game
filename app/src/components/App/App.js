@@ -47,13 +47,13 @@ class App extends React.Component {
         this.setState({
           highScore: this.state.clickedArr.length,
           clickedArr: [],
-          message: "Click an image to begin!",
+          message: "Guessed incorrectly!",
           shuffleCards: false
         })
       } else {
         this.setState({
           clickedArr: [],
-          message: "Click an image to begin!",
+          message: "Guessed incorrectly!",
           shuffleCards: false
         })
       }
@@ -96,13 +96,25 @@ class App extends React.Component {
       <div onClick={this.clickOutOfModal}>
         <Navbar score={this.state.highScore}/>
         <Jumbotron />
-        <Message message={this.state.message}/>
-        <Score score={this.state.clickedArr.length}>Current Score:</Score>
         {this.renderModal()}
-        <CardContainer 
-          handleCardClick={this.handleCardClick}
-          shuffleCards={this.state.shuffleCards}
-          />
+
+        <div className="main-container">
+          <div className="score-container">
+            <Score
+              className="current-score" 
+              score={this.state.clickedArr.length}>Current Score:</Score>
+          </div>
+
+          <CardContainer 
+            handleCardClick={this.handleCardClick}
+            shuffleCards={this.state.shuffleCards}
+            />
+            
+          <div className="message-container">
+            <Message message={this.state.message}/>
+          </div>
+        </div>
+
         <Footer />
       </div>
     );

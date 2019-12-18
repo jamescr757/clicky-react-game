@@ -1,9 +1,10 @@
 import React from "react";
+import "./Message.css";
 
 
 function Message(props) {
     return (
-        <h4 className="my-1 text-center">{props.message}</h4>
+        <h4 className="message">{props.message}</h4>
     );
 }
 

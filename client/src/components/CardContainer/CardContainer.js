@@ -4,30 +4,27 @@ import Card from "../Card";
 import characters from "./characters.json";
 import { shuffle } from "../../utils/shuffle";
 
-class CardContainer extends React.Component {
+function CardContainer(props) {
 
-    render() {
-
-        let shuffledCharacters;
-        if (this.props.shuffleCards) {
-            shuffledCharacters = shuffle(characters);
-        } else {
-            shuffledCharacters = characters;
-        }
-
-        return (
-            <div className="card-container">
-                {shuffledCharacters.map((character, index) => (
-                    <Card 
-                        key={index}
-                        image={`./images/${character.name}.jpeg`}
-                        id={character.id}
-                        handleCardClick={this.props.handleCardClick}
-                    />
-                ))}
-            </div>
-        );
+    let characterArray;
+    if (props.shuffleCards) {
+        characterArray = shuffle(characters);
+    } else {
+        characterArray = characters;
     }
+
+    return (
+        <div className="card-container">
+            {characterArray.map((character, index) => (
+                <Card 
+                    key={index}
+                    image={`./images/${character.name}.jpeg`}
+                    id={character.id}
+                    handleCardClick={props.handleCardClick}
+                />
+            ))}
+        </div>
+    );
 }
 
 

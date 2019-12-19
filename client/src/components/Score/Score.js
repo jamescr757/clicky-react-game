@@ -1,13 +1,11 @@
 import React from "react";
 import "./Score.css";
 
-class Score extends React.Component {
+function Score(props) {
 
-    render() {
-        return (
-            <span className={this.props.className}>{this.props.children} {this.props.score}</span>
-        );
-    }
+    return (
+        <span className={props.className}>{props.children} {props.score}</span>
+    );
 }
 
 export default Score;
